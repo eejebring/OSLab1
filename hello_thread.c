@@ -17,8 +17,8 @@ void * fun_1(void * arg)
     while (running)
     {
         printf("X");
-        //usleep(500);
-        clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
+        usleep(500);
+        //clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
     }
     return NULL;
 }
@@ -34,8 +34,8 @@ void * fun_2(void * arg)
     while (running)
     {
         printf(" ");
-        //usleep(500);
-        clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
+        usleep(500);
+        //clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
     }
     return NULL;
 }
