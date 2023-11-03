@@ -10,15 +10,15 @@ void * fun_1(void * arg)
 {
     struct timespec tStart, tEnd;
 
-    tEnd.tv_nsec = 5;
+    tEnd.tv_nsec = 500000;
     tEnd.tv_sec = 0;
     tStart.tv_sec = 0;
 
     while (running)
     {
         printf("X");
-        usleep(500);
-        //clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
+        //usleep(500);
+        clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
     }
     return NULL;
 }
@@ -27,15 +27,15 @@ void * fun_2(void * arg)
 {
     struct timespec tStart, tEnd;
 
-    tEnd.tv_nsec = 5;
+    tEnd.tv_nsec = 500000;
     tEnd.tv_sec = 0;
     tStart.tv_sec = 0;
 
     while (running)
     {
         printf(" ");
-        usleep(500);
-        //clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
+        //usleep(500);
+        clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
     }
     return NULL;
 }
