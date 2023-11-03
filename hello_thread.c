@@ -4,7 +4,6 @@
 #include <pthread.h> // compile with -lpthread
 #include "timespec_add_usec.h"
 
-
 int running = 1;
 
 void * fun_1(void * arg)
@@ -12,7 +11,7 @@ void * fun_1(void * arg)
     while (running)
     {
         printf("X");
-        usleep(500);
+        clock_nanosleep(500000)
     }
     return NULL;
 }
@@ -22,7 +21,7 @@ void * fun_2(void * arg)
     while (running)
     {
         printf(" ");
-        usleep(500);
+        clock_nanosleep(500000);
     }
     return NULL;
 }
