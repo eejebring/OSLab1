@@ -11,5 +11,5 @@ hello:
 clean:
 	-rm *.bin
 
-L1C1:
-	-gcc L1C1.c -lpthread -lwiringPi -o L1C1.bin
+L1E1:
+	-gcc L1E1.c -lpthread -lwiringPi -o L1E1.bin
