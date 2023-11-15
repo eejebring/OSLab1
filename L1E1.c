@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <wiringPi.h>
+#include <lttng/tracef.h>
 
 int LED_R = 28;
 int LED_G = 29;
@@ -30,7 +31,9 @@ void * ex1_green(void * arg) {
     int v = LOW;
     while(running) {
         v = pin_invert(v);
+        tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
+        tracef("sleep(GREEN, %u usec)", green_sleep_us);
         usleep(green_sleep_us);
     }
     return NULL;
