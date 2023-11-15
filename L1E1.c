@@ -7,6 +7,7 @@
 int LED_R = 28;
 int LED_G = 29;
 int LED_B = 27;
+int running = 1;
 
 int pin_invert(int pin_state) {
     if (pin_state == LOW) return HIGH;
@@ -44,4 +45,24 @@ void * ex1_blue(void * arg) {
         usleep(green_sleep_us);
     }
     return NULL;
+}
+
+int main()
+{
+    pthread_t t1;
+    pthread_t t2;
+    pthread_t t3;
+    pthread_create(&t1, NULL, ex1_red, NULL);
+    pthread_create(&t2, NULL, ex1_green, NULL);
+    pthread_create(&t3, NULL, ex1_blue, NULL);
+
+    usleep(500000); // 500 milliseconds
+    running = 0;
+
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
+    pthread_join(t3, NULL);
+
+    printf("\nAll threads are done!\n");
+    return EXIT_SUCCESS;
 }
