@@ -61,7 +61,7 @@ int main()
     pthread_create(&t2, NULL, ex1_green, NULL);
     pthread_create(&t3, NULL, ex1_blue, NULL);
 
-    usleep(10000000); // 500 milliseconds
+    usleep(20000000); // 500 milliseconds
     running = 0;
 
     pthread_join(t1, NULL);
