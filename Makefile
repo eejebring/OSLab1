@@ -12,4 +12,4 @@ clean:
 	-rm *.bin
 
 L1E1:
-	-gcc L1E1.c -lpthread -lwiringPi -o L1E1.bin
+	-gcc L1E1.c -lpthread -lwiringPi -llttng-ust -o L1E1.bin
