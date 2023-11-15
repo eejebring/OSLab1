@@ -1,4 +1,8 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <wiringPi.h>
 
 int LED_R = 28;
 int LED_G = 29;
