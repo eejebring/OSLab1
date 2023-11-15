@@ -49,6 +49,8 @@ void * ex1_blue(void * arg) {
 
 int main()
 {
+    wiringPiSetup();
+
     pthread_t t1;
     pthread_t t2;
     pthread_t t3;
