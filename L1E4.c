@@ -45,14 +45,12 @@ void * ex_red(void * arg) {
 
 void * ex_green(void * arg) {
     uint32_t g_period_ms = 1000;
-    useconds_t g_period_ns = g_period_ms * 1000000;
+    useconds_t g_period_us = g_period_ms * 1000;
     uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
 
-    struct timespec tStart, tEnd;
+    struct timespec delay;
 
-    tEnd.tv_nsec = g_period_ns;
-    tEnd.tv_sec = 0;
-    tStart.tv_sec = 0;
+    timespec_add_usec(&delay, g_period_us)
 
     int v = LOW;
     while(running) {
@@ -63,8 +61,8 @@ void * ex_green(void * arg) {
         //cpu_stress(g_stress_ms);
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
-        tracef("sleep(GREEN, %u usec)", g_period_ns);
-        nanosleep(&tEnd, NULL);
+        tracef("sleep(GREEN, %u usec)", g_period_us);
+        nanosleep(&delay, NULL);
     }
     return NULL;
 }
