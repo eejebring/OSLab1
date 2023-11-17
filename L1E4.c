@@ -50,7 +50,7 @@ void * ex_green(void * arg) {
 
     struct timespec delay;
 
-    timespec_add_usec(&delay, g_period_us)
+    timespec_add_usec(&delay, g_period_us);
 
     int v = LOW;
     while(running) {
