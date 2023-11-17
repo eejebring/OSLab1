@@ -12,15 +12,15 @@ int running = 1;
 
 uint32_t r_period_ms = 1000;
 useconds_t r_period_us = r_period_ms * 1000;
-uint32_t r_stress_ms = (uint32_t) (0.2 * (float) r_period_ms);
+uint32_t r_stress_ms = ((uint32_t) (0.2 * (float) r_period_ms));
 
 uint32_t g_period_ms = 500;
 useconds_t g_period_us = g_period_ms * 1000;
-uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
+uint32_t g_stress_ms = ((uint32_t) (0.2 * (float) g_period_ms));
 
 uint32_t b_period_ms = 200;
 useconds_t b_period_us = b_period_ms * 1000;
-uint32_t b_stress_ms = (uint32_t) (0.2 * (float) b_period_ms);
+uint32_t b_stress_ms = ((uint32_t) (0.2 * (float) b_period_ms));
 
 int pin_invert(int pin_state) {
     if (pin_state == LOW) return HIGH;
