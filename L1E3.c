@@ -1,8 +1,15 @@
+#define _GNU_SOURCE
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
 #include <wiringPi.h>
+
+#include <errno.h>
+#include <math.h>
+#include <pthread.h>
+#include <sched.h>
 #include <lttng/tracef.h>
 
 int LED_R = 28;
