@@ -43,15 +43,16 @@ void * ex_red(void * arg) {
     return NULL;
 }
 
-void * ex_green(void * arg) {
+int * ex_green(void * arg) {
     uint32_t g_period_ms = 1000;
     useconds_t g_period_us = g_period_ms * 1000;
     uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
 
     struct timespec delay;
-    printf("delay 1: %ld, %ld", delay.tv_sec, delay.tv_nsec)
+    delay.tv_sec = 0;
+    delay.tv_nsec = 0;
     timespec_add_usec(&delay, g_period_us);
-    printf("delay 2: %ld, %ld", delay.tv_sec, delay.tv_nsec)
+
 
     int v = LOW;
     while(running) {
@@ -71,13 +72,13 @@ void * ex_blue(void * arg) {
     useconds_t b_period_ns = b_period_ms * 1000;
     uint32_t b_stress_ms = (uint32_t) (0.2 * (float) b_period_ms);
 
+    struct timespec delay;
+    delay.tv_sec = 0;
+    delay.tv_nsec = 0;
+    timespec_add_usec(&delay, g_period_us);
+
     int v = LOW;
     while(running) {
-        struct timespec tStart, tEnd;
-
-        //tStart.tv_nsec = b_period_ns;
-        tEnd.tv_sec = 1;
-        tStart.tv_sec = 0;
 
         v = pin_invert(v);
         tracef("Stressing for: %u ms", b_stress_ms);
@@ -85,7 +86,7 @@ void * ex_blue(void * arg) {
         tracef("BLUE LED = %d", v);
         digitalWrite(LED_B, v);
         tracef("sleep(BLUE, %u usec)", b_period_ns);
-        clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, NULL);
+        clock_nanosleep(CLOCK_MONOTONIC, 0, &delay, NULL);
     }
     return NULL;
 }
