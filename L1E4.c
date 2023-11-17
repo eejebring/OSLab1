@@ -44,14 +44,14 @@ void * ex_red(void * arg) {
 }
 
 void * ex_green(void * arg) {
-    uint32_t g_period_ms = 900;
+    uint32_t g_period_ms = 1000;
     useconds_t g_period_ns = g_period_ms * 10000000;
     uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
 
     struct timespec tStart, tEnd;
 
     tEnd.tv_nsec = g_period_ns;
-    tEnd.tv_sec = 1;
+    tEnd.tv_sec = 0;
     tStart.tv_sec = 0;
 
     int v = LOW;
