@@ -19,3 +19,6 @@ L1E3:
 
 L1E4:
 	-gcc L1E4.c ./timespec_add_usec.h ./timespec_add_usec.c ./lab_1/thread_help.c ./lab_1/thread_help.h -lpthread -lwiringPi -llttng-ust -o L1E4.bin
+
+L1E5:
+	-gcc L1E5.c ./timespec_add_usec.h ./timespec_add_usec.c ./lab_1/thread_help.c ./lab_1/thread_help.h -lpthread -lwiringPi -llttng-ust -o L1E5.bin
