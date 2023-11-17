@@ -31,6 +31,11 @@ void * ex_red(void * arg) {
     useconds_t r_period_us = r_period_ms * 1000;
     uint32_t r_stress_ms = (uint32_t) (0.2 * (float) r_period_ms);
 
+    struct timespec delay;
+    delay.tv_sec = ex5_ts.tv_sec;
+    delay.tv_nsec = ex5_ts.tv_nsec;
+    timespec_add_usec(&delay, r_period_us);
+
     int v = LOW;
     while(running) {
         v = pin_invert(v);
@@ -39,7 +44,7 @@ void * ex_red(void * arg) {
         tracef("RED LED = %d", v);
         digitalWrite(LED_R, v);
         tracef("sleep(RED, %u usec)", r_period_us);
-        usleep(r_period_us);
+        clock_nanosleep(CLOCK_MONOTONIC, 0, &delay, &ex5_ts);
     }
     return NULL;
 }
@@ -50,8 +55,8 @@ int * ex_green(void * arg) {
     uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
 
     struct timespec delay;
-    delay.tv_sec = 0;
-    delay.tv_nsec = 0;
+    delay.tv_sec = ex5_ts.tv_sec;
+    delay.tv_nsec = ex5_ts.tv_nsec;
     timespec_add_usec(&delay, g_period_us);
 
 
@@ -63,7 +68,7 @@ int * ex_green(void * arg) {
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
         tracef("sleep(GREEN, %u usec)", g_period_us);
-        nanosleep(&delay, NULL);
+        clock_nanosleep(CLOCK_MONOTONIC, 0, &delay, &ex5_ts);
     }
     return NULL;
 }
