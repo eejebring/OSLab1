@@ -76,7 +76,7 @@ void * ex_blue(void * arg) {
     while(running) {
         struct timespec tStart, tEnd;
 
-        tEnd.tv_nsec = b_period_ns;
+        tStart.tv_nsec = b_period_ns;
         tEnd.tv_sec = 0;
         tStart.tv_sec = 0;
 
