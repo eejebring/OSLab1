@@ -13,3 +13,6 @@ clean:
 
 L1E1:
 	-gcc L1E1.c -lpthread -lwiringPi -llttng-ust -o L1E1.bin
+
+L1E3:
+	-gcc L1E3.c -lpthread -lwiringPi -llttng-ust -o L1E3.bin
