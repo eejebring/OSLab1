@@ -44,7 +44,7 @@ void * ex_red(void * arg) {
 }
 
 void * ex_green(void * arg) {
-    uint32_t g_period_ms = 1000000;
+    uint32_t g_period_ms = 1000;
     useconds_t g_period_ns = g_period_ms * 10000000;
     uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
 
@@ -52,9 +52,9 @@ void * ex_green(void * arg) {
     while(running) {
         struct timespec tStart, tEnd;
 
-        tEnd.tv_nsec = g_period_ns;
+        //tEnd.tv_nsec = g_period_ns;
         tEnd.tv_sec = 0;
-        tStart.tv_sec = 0;
+        tStart.tv_sec = 1;
 
         v = pin_invert(v);
         tracef("Stressing for: %u ms", g_stress_ms);
@@ -76,8 +76,8 @@ void * ex_blue(void * arg) {
     while(running) {
         struct timespec tStart, tEnd;
 
-        tStart.tv_nsec = b_period_ns;
-        tEnd.tv_sec = 0;
+        //tStart.tv_nsec = b_period_ns;
+        tEnd.tv_sec = 1;
         tStart.tv_sec = 0;
 
         v = pin_invert(v);
