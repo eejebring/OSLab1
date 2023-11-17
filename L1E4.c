@@ -44,7 +44,7 @@ void * ex_red(void * arg) {
 }
 
 void * ex_green(void * arg) {
-    uint32_t g_period_ms = 500;
+    uint32_t g_period_ms = 1000;
     useconds_t g_period_ns = g_period_ms * 1000000;
     uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
 
@@ -68,7 +68,7 @@ void * ex_green(void * arg) {
 }
 
 void * ex_blue(void * arg) {
-    uint32_t b_period_ms = 200;
+    uint32_t b_period_ms = 1000;
     useconds_t b_period_ns = b_period_ms * 1000000;
     uint32_t b_stress_ms = (uint32_t) (0.2 * (float) b_period_ms);
 
