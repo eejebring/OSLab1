@@ -53,16 +53,16 @@ void * ex_green(void * arg) {
         struct timespec tStart, tEnd;
 
         //tEnd.tv_nsec = g_period_ns;
-        tEnd.tv_sec = 0;
-        tStart.tv_sec = 1;
+        tEnd.tv_sec = 1;
+        tStart.tv_sec = 0;
 
         v = pin_invert(v);
         tracef("Stressing for: %u ms", g_stress_ms);
-        //cpu_stress(g_stress_ms);
+        cpu_stress(g_stress_ms);
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
         tracef("sleep(GREEN, %u usec)", g_period_ns);
-        nanosleep(&tEnd, &tStart);
+        nanosleep(CLOCK_REALTIME, &tEnd);
     }
     return NULL;
 }
