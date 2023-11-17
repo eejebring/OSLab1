@@ -109,7 +109,12 @@ int main()
     pthread_create(&t2, NULL, ex_green, NULL);
     pthread_create(&t3, NULL, ex_blue, NULL);
 
-    usleep(20000000);
+    struct timespec delay;
+    delay.tv_sec = ex5_ts.tv_sec;
+    delay.tv_nsec = ex5_ts.tv_nsec;
+    timespec_add_usec(&delay, 20000000);
+
+    clock_nanosleep(CLOCK_MONOTONIC, 0, &delay, &ex5_ts);
     running = 0;
 
     pthread_join(t1, NULL);
