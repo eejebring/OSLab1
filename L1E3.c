@@ -12,6 +12,8 @@
 #include <sched.h>
 #include <lttng/tracef.h>
 
+#include "lab_1/thread_help.h"
+
 int LED_R = 28;
 int LED_G = 29;
 int LED_B = 27;
