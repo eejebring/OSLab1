@@ -71,7 +71,7 @@ void * ex_green(void * arg) {
 
 void * ex_blue(void * arg) {
     uint32_t b_period_ms = 1000;
-    useconds_t b_period_ns = b_period_ms * 10000000;
+    useconds_t b_period_ns = b_period_ms * 1000;
     uint32_t b_stress_ms = (uint32_t) (0.2 * (float) b_period_ms);
 
     int v = LOW;
@@ -88,7 +88,7 @@ void * ex_blue(void * arg) {
         tracef("BLUE LED = %d", v);
         digitalWrite(LED_B, v);
         tracef("sleep(BLUE, %u usec)", b_period_ns);
-        clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
+        clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, NULL);
     }
     return NULL;
 }
