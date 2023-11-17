@@ -85,7 +85,7 @@ void * ex_blue(void * arg) {
         cpu_stress(b_stress_ms);
         tracef("BLUE LED = %d", v);
         digitalWrite(LED_B, v);
-        tracef("sleep(BLUE, %u usec)", b_period_ns);
+        tracef("sleep(BLUE, %u usec)", b_period_us);
         clock_nanosleep(CLOCK_MONOTONIC, 0, &delay, NULL);
     }
     return NULL;
