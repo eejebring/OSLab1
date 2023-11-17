@@ -62,7 +62,7 @@ void * ex_green(void * arg) {
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
         tracef("sleep(GREEN, %u usec)", g_period_ns);
-        nanosleep(&tEnd, 0);
+        nanosleep(&tEnd, NULL);
     }
     return NULL;
 }
