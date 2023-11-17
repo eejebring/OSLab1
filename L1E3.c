@@ -76,9 +76,9 @@ int main()
     pthread_t t1;
     pthread_t t2;
     pthread_t t3;
-    pthread_create(&t1, NULL, ex1_red, NULL);
-    pthread_create(&t2, NULL, ex1_green, NULL);
-    pthread_create(&t3, NULL, ex1_blue, NULL);
+    pthread_create(&t1, NULL, ex3_red, NULL);
+    pthread_create(&t2, NULL, ex3_green, NULL);
+    pthread_create(&t3, NULL, ex3_blue, NULL);
 
     usleep(20000000);
     running = 0;
