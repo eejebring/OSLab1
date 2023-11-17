@@ -55,8 +55,8 @@ void * ex_green(void * arg) {
         cpu_stress(g_stress_ms);
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
-        tracef("sleep(GREEN, %u usec)", g_period_us);
-        nanosleep(g_period_us);
+        tracef("sleep(GREEN, %u usec)", g_period_ns);
+        nanosleep(g_period_ns);
     }
     return NULL;
 }
@@ -70,7 +70,7 @@ void * ex_blue(void * arg) {
     while(running) {
         struct timespec tStart, tEnd;
 
-        tEnd.tv_nsec = 500000;
+        tEnd.tv_nsec = b_period_ns;
         tEnd.tv_sec = 0;
         tStart.tv_sec = 0;
 
@@ -79,7 +79,7 @@ void * ex_blue(void * arg) {
         cpu_stress(b_stress_ms);
         tracef("BLUE LED = %d", v);
         digitalWrite(LED_B, v);
-        tracef("sleep(BLUE, %u usec)", b_period_us);
+        tracef("sleep(BLUE, %u usec)", b_period_ns);
         clock_nanosleep(CLOCK_MONOTONIC, 0, &tEnd, &tStart);
     }
     return NULL;
@@ -92,9 +92,9 @@ int main()
     pthread_t t1;
     pthread_t t2;
     pthread_t t3;
-    pthread_create(&t1, NULL, ex3_red, NULL);
-    pthread_create(&t2, NULL, ex3_green, NULL);
-    pthread_create(&t3, NULL, ex3_blue, NULL);
+    pthread_create(&t1, NULL, ex_red, NULL);
+    pthread_create(&t2, NULL, ex_green, NULL);
+    pthread_create(&t3, NULL, ex_blue, NULL);
 
     usleep(20000000);
     running = 0;
