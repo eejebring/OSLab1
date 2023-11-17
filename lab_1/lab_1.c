@@ -30,12 +30,18 @@
  *                                                           *
  *************************************************************/
 #define RUNTIME_MILLSEC     5000
-#define REALTIME_THREADS    0
-
 // run `chrt -m` to learn allowed values (SCHED_FIFO)
+/*
+#define REALTIME_THREADS    0
 #define RT_PRIO_R           -1
 #define RT_PRIO_G           -1
 #define RT_PRIO_B           -1
+*/
+
+#define REALTIME_THREADS 1
+#define RT_PRIO_R 3
+#define RT_PRIO_G 2
+#define RT_PRIO_B 1
 
 #define EXERCISE_TO_RUN     0
 
