@@ -49,13 +49,12 @@ void * ex_green(void * arg) {
     uint32_t g_stress_ms = (uint32_t) (0.2 * (float) g_period_ms);
 
     struct timespec delay;
-
+    printf("delay 1: %ld, %ld", delay.tv_sec, delay.tv_nsec)
     timespec_add_usec(&delay, g_period_us);
+    printf("delay 2: %ld, %ld", delay.tv_sec, delay.tv_nsec)
 
     int v = LOW;
     while(running) {
-
-
         v = pin_invert(v);
         tracef("Stressing for: %u ms", g_stress_ms);
         //cpu_stress(g_stress_ms);
