@@ -4,9 +4,9 @@
 // $ gpio readall
 // and then testing with
 // $ gpio blink X
-#define     LED_R               -1
-#define     LED_G               -1
-#define     LED_B               -1
+#define     LED_R               28
+#define     LED_G               29
+#define     LED_B               27
 
 
 // These are functions that extracts values from
@@ -22,4 +22,5 @@ void      user_init           ();
 void *    run_red             (void * arg);
 void *    run_green           (void * arg);
 void *    run_blue            (void * arg);
+int       pin_invert          (int pin_state);
 
