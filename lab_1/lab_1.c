@@ -249,12 +249,6 @@ void   ex4_init()
 {
 }
 
-void * ex4_red(void * arg)
-{
-    if (pin_state == LOW) return HIGH;
-    else return LOW;
-}
-
 void * ex_red(void * arg) {
     uint32_t r_period_ms = 1000;
     useconds_t r_period_us = r_period_ms * 1000;
