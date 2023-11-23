@@ -5,7 +5,7 @@ systemd >> konsole >> fish >> sudo >> sudo >> L1E1.bin >> L1E1.bin(4617)(4618)(4
 # Exercise 2
 1. Execution time ~50 milliseconds
 2. the difference is 735 us
-3. the difference is 8623 us
+3. the difference is 8623 us (arriveal time delta 10 us)
 
 # Exercise 3
 1. the lenght is ~11957 us when two are working and ~7971 us when three is working .
@@ -19,7 +19,9 @@ systemd >> konsole >> fish >> sudo >> sudo >> L1E1.bin >> L1E1.bin(4617)(4618)(4
 2) red: 1638841 us, green: 1642899 us, the blue: 1008696 us
 
 # Exercise 5 
-1. nanosleep is more precise than usleep, and clock_nanosleep allows you to choose between different clocks.
-2. the difference is 12607 us 50% longer than E2Q3 (whole block took 603987 us)
+1. nanosleep is more precise than usleep as it measures time in nanoseconds, and clock_nanosleep allows you to choose between different clocks. In our case we use a absolute clock, which measures time since 1970 not since the command was run.
+2. the difference is 18 nanoseconds.
+3. drifing.
 
 # Exercise 6
+1.
