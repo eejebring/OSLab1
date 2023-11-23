@@ -44,7 +44,7 @@
 #define RT_PRIO_G 2
 #define RT_PRIO_B 1
 */
-#define EXERCISE_TO_RUN     4
+#define EXERCISE_TO_RUN     5
 
 int running;  // leave this alone
 
@@ -329,6 +329,7 @@ struct timespec ex5_ts;
 
 void   ex5_init()
 {
+    clock_gettime(CLOCK_REALTIME, &ex5_ts);
 }
 
 void * ex5_red(void * arg)
@@ -351,7 +352,7 @@ void * ex5_red(void * arg)
         tracef("RED LED = %d", v);
         digitalWrite(LED_R, v);
         tracef("sleep(RED, %u usec)", r_period_us);
-        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, &ex5_ts);
+        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, null);
     }
     return NULL;
 }
@@ -377,7 +378,7 @@ void * ex5_green(void * arg)
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
         tracef("sleep(GREEN, %u usec)", g_period_us);
-        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, &ex5_ts);
+        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, null);
     }
     return NULL;
 }
@@ -404,7 +405,7 @@ void * ex5_blue(void * arg)
         tracef("BLUE LED = %d", v);
         digitalWrite(LED_B, v);
         tracef("sleep(BLUE, %u usec)", b_period_us);
-        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, &ex5_ts);
+        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, null);
     }
     return NULL;
 }

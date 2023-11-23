@@ -15,8 +15,8 @@ systemd >> konsole >> fish >> sudo >> sudo >> L1E1.bin >> L1E1.bin(4617)(4618)(4
 5. uses 1 core about 45 to 55% of the cpu and the threads use up to 20 % of the cpu.
 
 # Exercise 4
-1) The red and green blinks on for 1 sec and off for 1 sec as expected, but the blue is blinks three times per second at all.
-2) red: 1618269 us, green: 1614254 us, the blue: 1602207 us
+1) The red and green blinks in 1,2 sec periods as expected, but the blue is blinks in 1 sec periods times per second at all.
+2) red: 1638841 us, green: 1642899 us, the blue: 1008696 us
 
 # Exercise 5 
 1. nanosleep is more precise than usleep, and clock_nanosleep allows you to choose between different clocks.
