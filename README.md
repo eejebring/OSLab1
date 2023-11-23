@@ -24,4 +24,6 @@ systemd >> konsole >> fish >> sudo >> sudo >> L1E1.bin >> L1E1.bin(4617)(4618)(4
 3. drifing.
 
 # Exercise 6
-1.
+1. FIFO (First In First Out)
+2. FCFS (First Come First Serve)
+3. our does not run tree times on wake it simply awaits scheduling time.
