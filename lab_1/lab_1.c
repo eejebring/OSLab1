@@ -421,6 +421,7 @@ void * ex5_blue(void * arg)
 
 void   ex6_init()
 {
+    clock_gettime(CLOCK_REALTIME, &ex5_ts);
 }
 
 void * ex6_red(void * arg)
