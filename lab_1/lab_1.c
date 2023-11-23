@@ -30,7 +30,7 @@
  * main.c:halting_function() for more details.               *
  *                                                           *
  *************************************************************/
-#define RUNTIME_MILLSEC     5000
+#define RUNTIME_MILLSEC     20000
 // run `chrt -m` to learn allowed values (SCHED_FIFO)
 
 #define REALTIME_THREADS    0
