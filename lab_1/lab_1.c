@@ -347,7 +347,7 @@ void * ex5_red(void * arg)
         v = pin_invert(v);
         tracef("Stressing for: %u ms", r_stress_ms);
         cpu_stress(r_stress_ms);
-        timespec_add_usec(&delay, b_period_us);
+        timespec_add_usec(&delay, r_period_us);
         tracef("RED LED = %d", v);
         digitalWrite(LED_R, v);
         tracef("sleep(RED, %u usec)", r_period_us);
@@ -373,7 +373,7 @@ void * ex5_green(void * arg)
         v = pin_invert(v);
         tracef("Stressing for: %u ms", g_stress_ms);
         cpu_stress(g_stress_ms);
-        timespec_add_usec(&delay, b_period_us);
+        timespec_add_usec(&delay, g_period_us);
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
         tracef("sleep(GREEN, %u usec)", g_period_us);
