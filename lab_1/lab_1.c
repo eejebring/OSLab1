@@ -44,7 +44,7 @@
 #define RT_PRIO_G 2
 #define RT_PRIO_B 1
 
-#define EXERCISE_TO_RUN     6
+#define EXERCISE_TO_RUN     7
 
 int running;  // leave this alone
 
