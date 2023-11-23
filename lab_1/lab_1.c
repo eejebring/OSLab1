@@ -300,12 +300,11 @@ void * ex4_blue(void * arg)
     uint32_t b_stress_ms = (uint32_t) (0.2 * (float) b_period_ms);
 
     struct timespec delay;
-    delay.tv_sec = 0;
-    delay.tv_nsec = 0;
-    timespec_add_usec(&delay, b_period_us);
+    clock_gettime(CLOCK_REALTIME, &delay);
 
     int v = LOW;
     while(running) {
+        timespec_add_usec(&delay, b_period_us);
 
         v = pin_invert(v);
         tracef("Stressing for: %u ms", b_stress_ms);
@@ -348,6 +347,7 @@ void * ex5_red(void * arg)
         v = pin_invert(v);
         tracef("Stressing for: %u ms", r_stress_ms);
         cpu_stress(r_stress_ms);
+        timespec_add_usec(&delay, b_period_us);
         tracef("RED LED = %d", v);
         digitalWrite(LED_R, v);
         tracef("sleep(RED, %u usec)", r_period_us);
@@ -373,6 +373,7 @@ void * ex5_green(void * arg)
         v = pin_invert(v);
         tracef("Stressing for: %u ms", g_stress_ms);
         cpu_stress(g_stress_ms);
+        timespec_add_usec(&delay, b_period_us);
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
         tracef("sleep(GREEN, %u usec)", g_period_us);
@@ -399,6 +400,7 @@ void * ex5_blue(void * arg)
         v = pin_invert(v);
         tracef("Stressing for: %u ms", b_stress_ms);
         cpu_stress(b_stress_ms);
+        timespec_add_usec(&delay, b_period_us);
         tracef("BLUE LED = %d", v);
         digitalWrite(LED_B, v);
         tracef("sleep(BLUE, %u usec)", b_period_us);
