@@ -27,3 +27,10 @@ systemd >> konsole >> fish >> sudo >> sudo >> L1E1.bin >> L1E1.bin(4617)(4618)(4
 1. FIFO (First In First Out)
 2. FCFS (First Come First Serve)
 3. our does not run tree times on wake it simply awaits scheduling time.
+
+# Exercise 7
+1. every time (every 100 us)
+2. Ur = 40 us, Ug = 70, Ur + Ug = 110 us. 110 > 100 us, so it's not possible to run the program in real time.
+3. no blue run once at the end, green runs 3 times between red runs.
+4. Blocking.
+5. no {99, 98, 1} setsup the same priority.
