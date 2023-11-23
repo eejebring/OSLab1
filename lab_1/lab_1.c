@@ -352,7 +352,7 @@ void * ex5_red(void * arg)
         tracef("RED LED = %d", v);
         digitalWrite(LED_R, v);
         tracef("sleep(RED, %u usec)", r_period_us);
-        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, null);
+        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, NULL);
     }
     return NULL;
 }
@@ -378,7 +378,7 @@ void * ex5_green(void * arg)
         tracef("GREEN LED = %d", v);
         digitalWrite(LED_G, v);
         tracef("sleep(GREEN, %u usec)", g_period_us);
-        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, null);
+        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, NULL);
     }
     return NULL;
 }
@@ -405,7 +405,7 @@ void * ex5_blue(void * arg)
         tracef("BLUE LED = %d", v);
         digitalWrite(LED_B, v);
         tracef("sleep(BLUE, %u usec)", b_period_us);
-        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, null);
+        clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &delay, NULL);
     }
     return NULL;
 }
